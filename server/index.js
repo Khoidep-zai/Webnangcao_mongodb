@@ -18,6 +18,7 @@ app.get('/hello', (req, res) => {
 
 // apis
 app.use('/api/admin', require('./api/admin.js'));
+app.use('/api/customer', require('./api/customer.js'));
 
 // start server
 app.listen(PORT, () => {

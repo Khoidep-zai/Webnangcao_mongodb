@@ -13,7 +13,7 @@ const uri =
   MyConstants.DB_DATABASE;
 
 mongoose
-  .connect(uri, { useNewUrlParser: true })
+  .connect(uri)
   .then(() => {
     console.log(
       'Connected to ' +
