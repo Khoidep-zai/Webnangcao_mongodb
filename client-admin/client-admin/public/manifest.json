@@ -1,0 +1,9 @@
+{
+  "short_name": "Admin App",
+  "name": "MERN Admin Application",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
