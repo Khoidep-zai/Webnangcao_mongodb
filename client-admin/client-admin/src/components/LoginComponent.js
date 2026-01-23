@@ -48,33 +48,46 @@ class LoginComponent extends Component {
   render() {
     return (
       <div className="login-container">
-        <form className="login-form" onSubmit={this.handleSubmit}>
-          <h2>Admin Login</h2>
-          <div className="form-group">
-            <label>Username:</label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit" className="btn-login">
-            Login
-          </button>
+        <div className="login-box">
+          <h2 className="login-title">ADMIN LOGIN</h2>
+          <form onSubmit={this.handleSubmit}>
+            <table className="login-table">
+              <tbody>
+                <tr>
+                  <td>Username</td>
+                  <td>
+                    <input
+                      type="text"
+                      name="username"
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>
+                    <input
+                      type="password"
+                      name="password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="submit" value="LOGIN" className="login-button" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
           {this.state.error && (
             <div className="error-message">{this.state.error}</div>
           )}
-        </form>
+        </div>
       </div>
     );
   }

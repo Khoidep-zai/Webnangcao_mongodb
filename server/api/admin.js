@@ -6,6 +6,7 @@ const JwtUtil = require('../utils/JwtUtil');
 
 // daos
 // const AdminDAO = require('../models/AdminDAO');
+const CategoryDAO = require('../models/CategoryDAO');
 
 // TEMPORARY: Hard-coded login for testing (remove when MongoDB is ready)
 router.post('/login', async function (req, res) {
@@ -45,6 +46,33 @@ router.get('/token', JwtUtil.checkToken, function (req, res) {
     message: 'Token is valid',
     token: token
   });
+});
+
+// category
+router.get('/categories', JwtUtil.checkToken, async function (req, res) {
+  const categories = await CategoryDAO.selectAll();
+  res.json(categories);
+});
+
+router.post('/categories', JwtUtil.checkToken, async function (req, res) {
+  const name = req.body.name;
+  const category = { name: name };
+  const result = await CategoryDAO.insert(category);
+  res.json(result);
+});
+
+router.put('/categories/:id', JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const name = req.body.name;
+  const category = { _id: _id, name: name };
+  const result = await CategoryDAO.update(category);
+  res.json(result);
+});
+
+router.delete('/categories/:id', JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const result = await CategoryDAO.delete(_id);
+  res.json(result);
 });
 
 module.exports = router;
