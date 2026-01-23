@@ -42,7 +42,7 @@ class CategoryDetail extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.item !== prevProps.item) {
+    if (this.props.item !== prevProps.item && this.props.item) {
       this.setState({ txtID: this.props.item._id, txtName: this.props.item.name });
     }
   }
@@ -90,6 +90,7 @@ class CategoryDetail extends Component {
       const result = res.data;
       if (result) {
         alert('OK BABY!');
+        this.setState({ txtID: '', txtName: '' });
         this.apiGetCategories();
       } else {
         alert('SORRY BABY!');
@@ -111,6 +112,7 @@ class CategoryDetail extends Component {
       const result = res.data;
       if (result) {
         alert('OK BABY!');
+        this.setState({ txtID: '', txtName: '' });
         this.apiGetCategories();
       } else {
         alert('SORRY BABY!');
@@ -124,6 +126,7 @@ class CategoryDetail extends Component {
       const result = res.data;
       if (result) {
         alert('OK BABY!');
+        this.setState({ txtID: '', txtName: '' });
         this.apiGetCategories();
       } else {
         alert('SORRY BABY!');
